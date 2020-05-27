@@ -1,0 +1,33 @@
+<?xml version = "1.0" encoding = "UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace = "Student">
+
+    <resultMap id = "result" type = "Student">
+        <result property = "id" column = "ID"/>
+        <result property = "name" column = "NAME"/>
+        <result property = "branch" column = "BRANCH"/>
+        <result property = "percentage" column = "PERCENTAGE"/>
+        <result property = "phone" column = "PHONE"/>
+        <result property = "email" column = "EMAIL"/>
+    </resultMap>
+
+    <select id = "getAll" resultMap = "result">
+        SELECT * FROM STUDENT;
+    </select>
+
+    <select id = "getById" parameterType = "int" resultMap = "result">
+        SELECT * FROM STUDENT WHERE ID = #{id};
+    </select>
+<!--    <delete id="deletByPhone" parameterType = "int" resultMap = "result">
+        DELETE  FROM STUDENT WHERE PHONE = #{phone};
+    </delete>-->
+    <delete id="deletById" parameterType = "int" >
+    DELETE  FROM STUDENT WHERE ID = #{id};
+    </delete>
+    <delete id="deletByPhone" parameterType = "int" >
+        DELETE  FROM STUDENT WHERE PHONE = #{phone};
+    </delete>
+
+</mapper>

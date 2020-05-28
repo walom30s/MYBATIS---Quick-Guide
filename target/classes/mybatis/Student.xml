@@ -20,11 +20,10 @@
     <select id = "getById" parameterType = "int" resultMap = "result">
         SELECT * FROM STUDENT WHERE ID = #{id};
     </select>
-<!--    <delete id="deletByPhone" parameterType = "int" resultMap = "result">
+    <delete id="deleteByPhone" parameterType = "int">
         DELETE  FROM STUDENT WHERE PHONE = #{phone};
-    </delete>-->
-    <delete id="deletById" parameterType = "int" >
-    DELETE  FROM STUDENT WHERE PHONE = #{phone};
     </delete>
-
+    <delete id="deleteById" parameterType = "int" >
+    DELETE  FROM STUDENT WHERE ID = #{id};
+    </delete>
 </mapper>
